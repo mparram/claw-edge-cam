@@ -31,12 +31,12 @@ var timeout = setTimeout(function(){
     var ffmpeg = spawn('ffmpeg', [
         '-f', 'video4linux2',
         '-framerate', '30',
-        '-video_size', '1280x720',
+        '-video_size', '800x480',
         '-i', '/dev/' + videodevice,
         '-f', 'mpegts',
         '-codec:v', 'mpeg1video',
-        '-s', '1280x720',
-        '-b:v', '800k',
+        '-s', '800x480',
+        '-b:v', '300k',
         '-bf', '0',
         'http://localhost:' + wsport + '/mystream'
     ]);
