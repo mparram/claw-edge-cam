@@ -28,28 +28,19 @@ app.post('/mystream', function(req, res){
 
 // set timeout
 var timeout = setTimeout(function(){
-  //  var ffmpeg = spawn('ffmpeg', [
-  //      '-f', 'video4linux2',
-  //      '-framerate', '30',
-  //      '-video_size', '1280x720',
-  //      '-i', '/dev/' + videodevice,
-  //      '-f', 'mpegts',
-  //      '-codec:v', 'mpeg1video',
-  //      '-s', '1280x720',
-  //      '-b:v', '800k',
-  //      '-bf', '0',
-  //      'http://localhost:' + wsport + '/mystream'
-  //  ]);
     var ffmpeg = spawn('ffmpeg', [
         '-f', 'video4linux2',
+        '-framerate', '30',
         '-video_size', '1280x720',
         '-i', '/dev/' + videodevice,
         '-f', 'mpegts',
+        '-codec:v', 'mpeg1video',
         '-s', '1280x720',
         '-b:v', '800k',
         '-bf', '0',
         'http://localhost:' + wsport + '/mystream'
     ]);
+
     ffmpeg.stdout.on('data', function(data) {
         console.log('stdout: ' + data);
     });
