@@ -3,7 +3,7 @@ var app = new express();
 const socketcli = require("socket.io-client");
 var cliport = process.env.CLI_PORT || 8080;
 var wsport = process.env.WS_PORT || 8081;
-var videodevice = process.env.VIDEO_DEVICE || "video6";
+var videodevice = process.env.VIDEO_DEVICE || "video0";
 var connectorsvc= process.env.CONNECTOR_SVC || "localhost";
 const ioclient = new socketcli.connect("http://" + connectorsvc+ ":" + cliport, {
   reconnection: true,
